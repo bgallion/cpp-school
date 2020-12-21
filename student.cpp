@@ -26,6 +26,12 @@ string Student::getStudentStudentID() {
     return this->studentID;
 }
 
+string Student::getStudentFirstName() {
+    return this->firstName;
+}
+
 void Student::print() {
-    cout << this->getStudentStudentID() << "\n";
+    cout << this->getStudentStudentID() << "\t";
+    cout << "First Name: " << this->getStudentFirstName() << "\t";
+    cout << "\n";
 }

@@ -12,13 +12,13 @@ int main() {
 
    const int numStudents = 5;
 
-   Roster roster;
+   Roster classRoster;
 
    for (int i = 0; i < numStudents; i++) {
-      roster.parse(studentData[i]);
+      classRoster.parse(studentData[i]);
    }
    
-   roster.printAll();
+   classRoster.printAll();
 
    return 0;
 }
