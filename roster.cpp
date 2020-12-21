@@ -4,7 +4,15 @@ void Roster::parse(string studentData) {
     int rhs = studentData.find(",");
     string studentID = studentData.substr(0, rhs);
 
-    add(studentID);
+    add(studentID,
+        string firstName, 
+        string lastName, 
+        string emailAddress, 
+        int age, 
+        int daysInCourse1,
+        int daysInCourse2,
+        int daysInCourse3, 
+        DegreeProgram degreeProgram);
 }
 
 void Roster::add(string studentID) {
