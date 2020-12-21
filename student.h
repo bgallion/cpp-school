@@ -38,7 +38,7 @@ class Student {
         string getStudentLastName();
         string getStudentEmailAddress();
         int getStudentAge();
-        int* getStudentDaysToCompleteEachCourse();
+        int getStudentDaysToCompleteEachCourse();
         string getStudentDegreeProgram();
 
         // Requirement D2 b.
