@@ -9,7 +9,7 @@ void Roster::parse(string studentData) {
     int age = 21;
     int daysInCourse1 = 5;
     int daysInCourse2 = 10;
-    int daysInCourse3 =15; 
+    int daysInCourse3 = 15; 
     DegreeProgram degreeProgram = SECURITY;
 
     add(studentID,
