@@ -50,8 +50,9 @@ int *Student::getStudentDaysToCompleteEachCourse() {
     return this->daysToCompleteEachCourse;
 }
 
-DegreeProgram Student::getStudentDegreeProgram() {
-    return this->degreeProgram;
+string Student::getStudentDegreeProgram() {
+    string degreeName = degreeProgramStrings[this->degreeProgram];
+    return degreeName;
 }
 
 // Requirement D2 b.
