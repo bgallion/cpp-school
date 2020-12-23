@@ -23,6 +23,10 @@ Student::Student(string studentID,
     Student::setStudentStudentID(studentID);
     Student::setStudentFirstName(firstName);
     Student::setStudentLastName(lastName);
+    Student::setStudentEmailAddress(emailAddress);
+    Student::setStudentAge(age);
+    Student::setStudentDaysToCompleteEachCourse(daysToCompleteEachCourse);
+    Student::setStudentDegreeProgram(degreeProgram);
 
 }
 
@@ -71,11 +75,31 @@ void Student::setStudentLastName(string lastName) {
     this->lastName = lastName;
 }
 
+void Student::setStudentEmailAddress(string emailAddress) {
+    this->emailAddress = emailAddress;
+}
+
+void Student::setStudentAge(int age) {
+    this->age = age;
+}
+
+void Student::setStudentDaysToCompleteEachCourse(int daysToCompleteEachCourse[]) {
+    for (int i = 0; i < daysToCompleteEachCourseArraySize; i++) {
+        this->daysToCompleteEachCourse[i] = daysToCompleteEachCourse[i];
+    }
+}
+
+void Student::setStudentDegreeProgram(DegreeProgram degreeProgram) {
+    this->degreeProgram = degreeProgram;
+}
+
 void Student::print() {
     cout << this->getStudentStudentID() << "\t";
     cout << "First Name: " << this->getStudentFirstName() << "\t";
     cout << "Last Name: " << this->getStudentLastName() << "\t";
     cout << "Age: " << this->getStudentAge() << "\t";
-    cout << "daysInCourse: " << this->getStudentDaysToCompleteEachCourse() << "\t";
+    cout << "daysInCourse: {" << this->getStudentDaysToCompleteEachCourse()[0] << ", ";
+    cout << this->getStudentDaysToCompleteEachCourse()[1] << ", ";
+    cout << this->getStudentDaysToCompleteEachCourse()[2] << "}\t";
     cout << "Degree Program: " << this->getStudentDegreeProgram() << "\n";
 }

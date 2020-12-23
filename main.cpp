@@ -19,6 +19,10 @@ int main() {
    }
    
    classRoster.printAll();
+   
+   classRoster.remove("A3");
+   classRoster.printAll();
+   classRoster.remove("A3");
 
    return 0;
 }

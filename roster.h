@@ -5,7 +5,7 @@ class Roster {
     private:
         int index = -1;
         const static int numStudents = 5;
-        Student* classRosterArray[numStudents];
+        Student *classRosterArray[numStudents];
 
     public:
         void parse(string row);
