@@ -1,10 +1,18 @@
 #include "roster.h"
 
 void Roster::parse(string studentData) {
-    int rhs = studentData.find(",");
-    string studentID = studentData.substr(0, rhs);
-    string firstName = "First";
-    string lastName = "Last";
+    int delim1 = studentData.find(",");
+    string studentID = studentData.substr(0, delim1);
+    string strAfterDelim1 = studentData.substr(delim1 + 1, studentData.length() - delim1);
+
+    int delim2 = strAfterDelim1.find(",");
+    string firstName = strAfterDelim1.substr(0, delim2);
+    string strAfterDelim2 = strAfterDelim1.substr(delim2 + 1, strAfterDelim1.length() - delim2);
+
+    int delim3 = strAfterDelim2.find(",");
+    string lastName = strAfterDelim2.substr(0, delim3);
+    string strAfterDelim3 = strAfterDelim2.substr(delim3 + 1, strAfterDelim2.length() - delim3);
+    
     string emailAddress = "first@last.com";
     int age = 21;
     int daysInCourse1 = 5;

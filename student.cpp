@@ -21,7 +21,9 @@ Student::Student(string studentID,
             DegreeProgram degreeProgram) {
 
     Student::setStudentStudentID(studentID);
-    this->firstName = firstName;
+    Student::setStudentFirstName(firstName);
+    Student::setStudentLastName(lastName);
+
 }
 
 // Requirement D2 a.
@@ -57,8 +59,16 @@ string Student::getStudentDegreeProgram() {
 
 // Requirement D2 b.
 // Setters
-void Student::setStudentStudentID(string ID) {
-    this->studentID = ID;    
+void Student::setStudentStudentID(string studentID) {
+    this->studentID = studentID;    
+}
+
+void Student::setStudentFirstName(string firstName) {
+    this->firstName = firstName;
+}
+
+void Student::setStudentLastName(string lastName) {
+    this->lastName = lastName;
 }
 
 void Student::print() {
