@@ -3,11 +3,12 @@
 
 class Roster {
     private:
-        int index = -1;
         const static int numStudents = 5;
-        Student *classRosterArray[numStudents];
 
     public:
+        Roster(); // Parameterless constructor for default values
+        int index = -1;
+        Student *classRosterArray[numStudents];
         void parse(string row);
 
         void add(string studentID, 
@@ -26,5 +27,5 @@ class Roster {
         void printAverageDaysInCourse(string studentID);
         void printInvalidEmails();
         void printByDegreeProgram(DegreeProgram degreeProgram);
-        // ~Roster();
+        ~Roster();
 };

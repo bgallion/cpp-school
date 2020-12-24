@@ -39,7 +39,7 @@ class Student {
         string getStudentEmailAddress();
         int getStudentAge();
         int *getStudentDaysToCompleteEachCourse();
-        string getStudentDegreeProgram();
+        DegreeProgram getStudentDegreeProgram();
 
         // Requirement D2 b.
         // Setters

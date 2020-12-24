@@ -12,17 +12,41 @@ int main() {
 
    const int numStudents = 5;
 
+   cout << "Header:\n";
+   cout << "Scripting and Programming - Applications – C867\t";
+   cout << "Langauge used: C++\t" << "Student ID: 001457055\t" << "Name: Bruce Gallion\n";
+
    Roster classRoster;
 
    for (int i = 0; i < numStudents; i++) {
       classRoster.parse(studentData[i]);
    }
-   
+
+   cout << "Print all:\n";
    classRoster.printAll();
+
+   cout << "Print invalid email addresses:\n";
+   classRoster.printInvalidEmails();
+
+   cout << "Print average days in course:\n";
+   for (int i = 0; i <= classRoster.index; i++) {
+      string studentID = classRoster.classRosterArray[i]->getStudentStudentID();
+      classRoster.printAverageDaysInCourse(studentID);
+   }
    
+   cout << "Print by degree program SOFTWARE:\n";
+   classRoster.printByDegreeProgram(SOFTWARE);
+
+   cout << "Remove A3:\n";
    classRoster.remove("A3");
+
+   cout << "Print all:\n";
    classRoster.printAll();
+
+   cout << "Remove A3:\n";
    classRoster.remove("A3");
+
+   classRoster.~Roster();
 
    return 0;
 }

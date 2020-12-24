@@ -12,6 +12,10 @@ Student::Student() {
     this->degreeProgram = SECURITY;
 }
 
+Student::~Student() {
+    
+}
+
 Student::Student(string studentID,
             string firstName, 
             string lastName, 
@@ -56,9 +60,9 @@ int *Student::getStudentDaysToCompleteEachCourse() {
     return this->daysToCompleteEachCourse;
 }
 
-string Student::getStudentDegreeProgram() {
-    string degreeName = degreeProgramStrings[this->degreeProgram];
-    return degreeName;
+DegreeProgram Student::getStudentDegreeProgram() {
+    // string degreeName = degreeProgramStrings[this->degreeProgram];
+    return this->degreeProgram;
 }
 
 // Requirement D2 b.
@@ -101,5 +105,5 @@ void Student::print() {
     cout << "daysInCourse: {" << this->getStudentDaysToCompleteEachCourse()[0] << ", ";
     cout << this->getStudentDaysToCompleteEachCourse()[1] << ", ";
     cout << this->getStudentDaysToCompleteEachCourse()[2] << "}\t";
-    cout << "Degree Program: " << this->getStudentDegreeProgram() << "\n";
+    cout << "Degree Program: " << degreeProgramStrings[this->getStudentDegreeProgram()] << "\n";
 }

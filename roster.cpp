@@ -1,5 +1,13 @@
 #include "roster.h"
 
+Roster::Roster() {
+
+}
+
+Roster::~Roster() {
+    
+}
+
 void Roster::parse(string studentData) {
     int delim1 = studentData.find(",");
     string studentID = studentData.substr(0, delim1);
@@ -82,30 +90,90 @@ void Roster::add(string studentID,
 void Roster::remove(string studentID) {
     try
     {
+        // Variable to track whether we find a match or not for the studentID.
         int studentIDFound = 0;
-        for (int i = 0; i < numStudents; i++) {
+
+        // Loop through the class roster and look for a match.
+        for (int i = 0; i <= index; i++) {
             if (classRosterArray[i]->getStudentStudentID() == studentID) {
-                for (int j = i; j < numStudents - 1; j++) {
+                // A match was found. Replace this element in the array with the next element and continue forward.
+                for (int j = i; j < index; j++) {
                     classRosterArray[j] = classRosterArray[j+1];
                 }
+                studentIDFound = 1;
+                // Student ID was found and removed.
                 index--;
+            }
+        }
+
+        // If the studentID was not found, throw an error.
+        if (studentIDFound == 0) {
+            throw("Student ID " + studentID + " was not found.");
+        } 
+    }
+    catch(string e)
+    {
+        std::cerr << e << "\n";
+    } 
+}
+
+void Roster::printAverageDaysInCourse(string studentID) {
+    try
+    {
+        // Variable to track whether we find a match or not for the studentID.
+        int studentIDFound = 0;
+
+        for (int i = 0; i <= index; i++) {
+            if (classRosterArray[i]->getStudentStudentID() == studentID) {
+                int sumOfDays = 0;
+                int numOfCourses = classRosterArray[i]->daysToCompleteEachCourseArraySize;
+                for (int j = 0; j < numOfCourses; j++) {
+                    int days = classRosterArray[i]->getStudentDaysToCompleteEachCourse()[j];
+                    sumOfDays += days;
+                }
+                double average = sumOfDays / numOfCourses;
+                cout << average << "\n";
                 studentIDFound = 1;
             }
         }
+
+        // If the studentID was not found, throw an error.
         if (studentIDFound == 0) {
             throw("Student ID " + studentID + " was not found.");
-        }
+        } 
     }
     catch(string e)
     {
         std::cerr << e << "\n";
     }
-    
 }
 
 void Roster::printAll() {
     for (int i = 0; i <= index; i++) {
         classRosterArray[i]->print();
     }
-    
+}
+
+void Roster::printInvalidEmails() {
+    // Loop through the class roster and search for invalid email strings.
+    for (int i = 0; i <= index; i++) {
+        string emailAddress = classRosterArray[i]->getStudentEmailAddress();
+        int atSign = emailAddress.find("@");
+        int period = emailAddress.find(".");
+        int space = emailAddress.find(" ");
+
+        // If the email address is missing an "@" OR missing a "." OR has a space.
+        if (atSign < 0 || period < 0 || space >= 0) {
+            cout << emailAddress << "\n";
+        }
+    }
+}
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
+    // Loop through the class roster and search for matching degree programs.
+    for (int i = 0; i <= index; i++) {
+        if (degreeProgram == classRosterArray[i]->getStudentDegreeProgram()) {
+            classRosterArray[i]->print();
+        }
+    }
 }

@@ -2,7 +2,7 @@
 #include <string>
 
 // Requirement C.
-// Words in enum type are really placeholders for ints
+// Underlying values of enum are int. {0,1,2}
 enum DegreeProgram { SECURITY, NETWORK, SOFTWARE };
 
 // Array to convert enum values to their representative string
