@@ -7,7 +7,7 @@ class Roster {
 
     public:
         Roster(); // Parameterless constructor for default values
-        int index = -1;
+        int index = -1; // index for tracking the number of students in the roster. Needed for looping through after deleting a student.
         Student *classRosterArray[numStudents];
         void parse(string row);
 

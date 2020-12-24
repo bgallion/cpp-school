@@ -5,10 +5,15 @@ Roster::Roster() {
 }
 
 Roster::~Roster() {
-    
+
 }
 
 void Roster::parse(string studentData) {
+    /*
+        Go through the string and find each instance of the delimeter.
+        Take the values between the delimeters along the way and assign them to the variables.
+    */
+
     int delim1 = studentData.find(",");
     string studentID = studentData.substr(0, delim1);
     string strAfterDelim1 = studentData.substr(delim1 + 1, studentData.length() - delim1);
@@ -26,6 +31,7 @@ void Roster::parse(string studentData) {
     string strAfterDelim4 = strAfterDelim3.substr(delim4 + 1, strAfterDelim3.length() - delim4);
 
     int delim5 = strAfterDelim4.find(",");
+    // stoi() converts string value to int.
     int age = stoi(strAfterDelim4.substr(0, delim5));
     string strAfterDelim5 = strAfterDelim4.substr(delim5 + 1, strAfterDelim4.length() - delim5);
 
@@ -46,6 +52,7 @@ void Roster::parse(string studentData) {
 
     DegreeProgram degreeProgram;
 
+    // Case statement for the program string. Find a match and assign the enum.
     if (degreeProgramStr == "SECURITY") {
         degreeProgram = SECURITY;
     } else if (degreeProgramStr == "NETWORK") {

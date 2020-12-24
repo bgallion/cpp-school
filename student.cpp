@@ -13,7 +13,7 @@ Student::Student() {
 }
 
 Student::~Student() {
-    
+
 }
 
 Student::Student(string studentID,
@@ -61,7 +61,6 @@ int *Student::getStudentDaysToCompleteEachCourse() {
 }
 
 DegreeProgram Student::getStudentDegreeProgram() {
-    // string degreeName = degreeProgramStrings[this->degreeProgram];
     return this->degreeProgram;
 }
 
